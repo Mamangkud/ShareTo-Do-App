@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_back" />
+
+    <EditText
+        android:id="@+id/edt_update_judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Title"
+        android:textSize="20dp"
+        android:inputType="textPersonName" />
+
+    <ImageView
+        android:id="@+id/bt_addlist_upd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/ic_addtask" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="346dp">
+
+        <LinearLayout
+            android:id="@+id/layout_list_upd"
+            android:layout_width="match_parent"
+            android:layout_height="364dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_Everyone"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/average_sans"
+        android:text="Share To Public" />
+
+    <Button
+        android:id="@+id/bt_mytask"
+        android:layout_width="358dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/average_sans"
+        android:text="Save To My Task" />
+
+</LinearLayout>

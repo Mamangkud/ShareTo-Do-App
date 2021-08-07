@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811333768835",
+    "project_id": "sharetodo-9c12e",
+    "storage_bucket": "sharetodo-9c12e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811333768835:android:dd20ed3020b92ed9b36db6",
+        "android_client_info": {
+          "package_name": "com.example.sharetodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811333768835-pkm70t5fk5rqiok8q5ukvps87uv4crki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFXIYD4-juXGNH9fW9vlmypulGIVDsD8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811333768835-pkm70t5fk5rqiok8q5ukvps87uv4crki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

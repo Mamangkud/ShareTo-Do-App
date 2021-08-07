@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/crd_view_upd"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    >
+
+  <!--  <CheckBox
+        android:id="@+id/cb_list_upd"
+        android:layout_width="33dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp" />-->
+
+    <EditText
+        android:id="@+id/edt_list_upd"
+        android:layout_width="310dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/round_grey"
+        android:hint=""
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/bt_deletelist_upd"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_baseline_cancel_24" />
+</androidx.cardview.widget.CardView>
