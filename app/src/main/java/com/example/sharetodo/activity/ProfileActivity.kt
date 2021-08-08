@@ -1,10 +1,11 @@
 package com.example.sharetodo.activity
 
-import Database.MyTask
-import Database.Profile
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -12,10 +13,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.sharetodo.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_registration.*
-import java.text.SimpleDateFormat
+import java.io.ByteArrayOutputStream
+import java.net.URI
 import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
@@ -37,13 +40,19 @@ class ProfileActivity : AppCompatActivity() {
 
         loadProfile()
 
+        profile_image.setOnClickListener {
+            bt_savepicture.visibility = View.VISIBLE
+
+        }
+
+
         usernamedd.setOnClickListener{
             bt_save.visibility = View.VISIBLE
         }
 
-//        bt_save.setOnClickListener {
-//            saveData()
-//        }
+        bt_save.setOnClickListener {
+            saveData()
+        }
 
       /*  iv_backp.setOnClickListener {
 
@@ -67,22 +76,13 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-/*   private fun saveData(){
-       val ref = FirebaseDatabase.getInstance().reference
+   private fun saveData(){
        val userID = auth.uid.toString()
-       val profile = Profile(usernamedd.text.toString())
-       val myTaskId = intent.getStringExtra("Id")
-       val sdf = SimpleDateFormat("HH:mm a")
-       val cal = Calendar.getInstance()
-       val waktu = sdf.format(cal.time)
-       val myTask = MyTask(userID, myTaskId, judul.text.toString(), waktu, lisItem)
-
-       if(profile != null){
-           ref.child("profile").child(userID).setValue(profile).addOnCompleteListener{
+       var username = usernamedd.text.toString()
+       ref.child("profile").child(userID).child("Username").setValue(username).addOnCompleteListener{
                Toast.makeText(applicationContext, "Data berhasil di update ", Toast.LENGTH_SHORT).show()
-           }
        }
-   }*/
+   }
 
     private fun loadProfile(){
         val user = auth.currentUser
@@ -110,3 +110,4 @@ class ProfileActivity : AppCompatActivity() {
         }*/
     }
 }
+

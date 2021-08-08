@@ -1,6 +1,7 @@
 package com.example.sharetodo.activity
 
 import Database.MyTask
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import com.example.sharetodo.R
 import com.example.sharetodo.entity.ItemLIst
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_detail_mytask.*
 import kotlinx.android.synthetic.main.activity_detail_task.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,7 +34,16 @@ class DetailTaskActivity : AppCompatActivity() {
         bt_clone.setOnClickListener{
             checkAndReadList()
             cloneData()
+            val intent = Intent(this@DetailTaskActivity, MainActivity::class.java)
+            startActivity(intent)
             Toast.makeText(this,"Task berhasil di clone ke My Task",Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
+        bt_back4.setOnClickListener {
+            val intent = Intent(this@DetailTaskActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

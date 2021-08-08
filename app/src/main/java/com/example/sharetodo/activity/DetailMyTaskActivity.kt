@@ -41,7 +41,14 @@ class DetailMyTaskActivity : AppCompatActivity() {
             checkAndReadList()
             submitData()
             finish()
-            Toast.makeText(this,"Task berhasil di clone ke My Task", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@DetailMyTaskActivity, MyTaskActivity::class.java)
+            startActivity(intent)
+        }
+
+        bt_back3.setOnClickListener {
+            val intent = Intent(this@DetailMyTaskActivity, MyTaskActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

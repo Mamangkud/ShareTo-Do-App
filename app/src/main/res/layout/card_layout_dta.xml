@@ -3,23 +3,16 @@
 
     android:id="@+id/crd_view_upd"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    >
-
-   <!-- <CheckBox
-         android:id="@+id/cb_list_dta"
-         android:layout_width="33dp"
-         android:layout_height="50dp"
-         android:layout_marginLeft="20dp"
-         android:layout_marginTop="5dp" />-->
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tv_list_dta"
-        android:layout_width="353dp"
+        android:layout_width="305dp"
         android:layout_height="43dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1"
         android:background="@drawable/round_grey"
         android:hint=""

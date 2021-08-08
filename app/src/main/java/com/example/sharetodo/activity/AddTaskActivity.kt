@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_addtask.*
+import kotlinx.android.synthetic.main.activity_detail_task.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -58,6 +59,13 @@ class AddTaskActivity : AppCompatActivity() {
                 val intent = Intent(this@AddTaskActivity, MainActivity::class.java)
                 startActivity(intent)
             }
+
+            bt_back1.setOnClickListener {
+                val intent = Intent(this@AddTaskActivity, MyTaskActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
         }
     }
 

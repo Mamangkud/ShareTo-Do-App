@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareToDo">
+
         <activity android:name=".activity.DetailMyTaskActivity"/>
         <activity android:name=".activity.DetailTaskActivity"/>
         <activity android:name=".activity.UpdateTaskActivity" />
@@ -21,6 +22,7 @@
         <activity android:name=".activity.MyTaskActivity" />
         <activity android:name=".activity.AddTaskActivity" />
         <activity android:name=".activity.LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
