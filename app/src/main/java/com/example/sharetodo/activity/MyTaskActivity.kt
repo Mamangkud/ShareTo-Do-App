@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import com.example.sharetodo.R
 import com.example.sharetodo.adapter.MyTaskAdapter
 import com.example.sharetodo.entity.ItemLIst
@@ -81,6 +82,10 @@ class MyTaskActivity : AppCompatActivity() {
 
         })
 
+        bt_toggle2.setOnClickListener {
+            drawerLayout2.openDrawer(GravityCompat.START)
+        }
+
         toggle = ActionBarDrawerToggle(this, drawerLayout2, R.string.open, R.string.close)
         drawerLayout2.addDrawerListener(toggle)
         toggle.syncState()
@@ -92,10 +97,15 @@ class MyTaskActivity : AppCompatActivity() {
                 R.id.Item1 -> startActivity(Intent(this@MyTaskActivity, MainActivity::class.java))
                 R.id.Item2 -> startActivity(Intent(this@MyTaskActivity, MyTaskActivity::class.java))
                 R.id.Item3 -> startActivity(Intent(this@MyTaskActivity, ProfileActivity::class.java))
-                R.id.Item4 -> startActivity(Intent(this@MyTaskActivity, LoginActivity::class.java))
+                R.id.Item4 -> logout()
             }
             true
         }
 
+    }
+    private fun logout(){
+        auth.signOut()
+        startActivity(Intent(this@MyTaskActivity, LoginActivity::class.java))
+        finish()
     }
 }

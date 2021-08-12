@@ -15,4 +15,6 @@
     <color name="transparent">#00F8F4F4</color>
     <color name="topbar">#F96060</color>
     <color name="background">#ECECEC</color>
+    <color name="layout">#F96060</color>
+    <color name="solidCircle">#AAFFFFFF</color>
 </resources>

@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import com.example.sharetodo.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -54,9 +55,9 @@ class ProfileActivity : AppCompatActivity() {
             saveData()
         }
 
-      /*  iv_backp.setOnClickListener {
-
-        }*/
+        bt_toggle3.setOnClickListener {
+            drawerLayout3.openDrawer(GravityCompat.START)
+        }
 
         toggle = ActionBarDrawerToggle(this, drawerLayout3, R.string.open, R.string.close)
         drawerLayout3.addDrawerListener(toggle)
@@ -69,7 +70,7 @@ class ProfileActivity : AppCompatActivity() {
                 R.id.Item1 -> startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
                 R.id.Item2 -> startActivity(Intent(this@ProfileActivity, MyTaskActivity::class.java))
                 R.id.Item3 -> startActivity(Intent(this@ProfileActivity, ProfileActivity::class.java))
-                R.id.Item4 -> startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+                R.id.Item4 -> logout()
             }
             true
         }
@@ -104,10 +105,11 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
             finish()
         }
-
-        /*iv_backp.setOnClickListener {
-            startActivity(Intent(this@ProfileActivity, MainActivity::class.java))
-        }*/
+    }
+    private fun logout(){
+        auth.signOut()
+        startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+        finish()
     }
 }
 

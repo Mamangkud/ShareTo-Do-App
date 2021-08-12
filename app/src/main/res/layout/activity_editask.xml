@@ -7,14 +7,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:orientation="vertical"
         android:background="@color/topbar">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+            android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
@@ -30,6 +30,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:text="Edit Task"
+            android:fontFamily="@font/average"
             android:textColor="@color/white"
             android:textSize="20dp" />
     </LinearLayout>

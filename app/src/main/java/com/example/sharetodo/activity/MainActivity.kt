@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import com.example.sharetodo.R
 import com.example.sharetodo.adapter.MyTaskAdapter
 import com.example.sharetodo.adapter.PublicTaskAdapter
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -28,25 +30,33 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         publicTaskList = mutableListOf()
         ref.child("PublicTask").addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        publicTaskList.clear()
-                        for (h in snapshot.children) {
-                            var publicTask = MyTask()
-                            publicTask.id = h.key
-                            publicTaskList.add(publicTask)
-                            loadTasks(publicTask)
-                        }
-                        val adapter =
-                            PublicTaskAdapter(applicationContext, R.layout.item_publictask, publicTaskList)
-                            lvp_myTask.adapter = adapter
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    publicTaskList.clear()
+                    for (h in snapshot.children) {
+                        var publicTask = MyTask()
+                        publicTask.id = h.key
+                        publicTaskList.add(publicTask)
+                        loadTasks(publicTask)
                     }
+                    val adapter =
+                        PublicTaskAdapter(
+                            applicationContext,
+                            R.layout.item_publictask,
+                            publicTaskList
+                        )
+                    lvp_myTask.adapter = adapter
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
+            override fun onCancelled(error: DatabaseError) {
 
-                }
-            })
+            }
+        })
+
+        bt_toggle.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -55,41 +65,52 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         navView.setNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.Item1 -> startActivity(Intent(this@MainActivity, MainActivity::class.java))
                 R.id.Item2 -> startActivity(Intent(this@MainActivity, MyTaskActivity::class.java))
                 R.id.Item3 -> startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
-                R.id.Item4 -> startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                R.id.Item4 -> logout()
             }
             true
         }
     }
 
-    private  fun loadTasks(publicTask: MyTask){
-        ref.child("Tasks").child(publicTask.id.toString()).addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    val task = snapshot.getValue(MyTask::class.java)
-                    if (task != null) {
-                        publicTask.judul = task.judul
-                        publicTask.author = task.author
-                        publicTask.listItem  = task.listItem
-                        publicTask.waktu = task.waktu
+    private fun loadTasks(publicTask: MyTask) {
+        ref.child("Tasks").child(publicTask.id.toString())
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val task = snapshot.getValue(MyTask::class.java)
+                        if (task != null) {
+                            publicTask.judul = task.judul
+                            publicTask.author = task.author
+                            publicTask.listItem = task.listItem
+                            publicTask.waktu = task.waktu
+                        }
+                        val adapter = PublicTaskAdapter(
+                            applicationContext,
+                            R.layout.item_publictask,
+                            publicTaskList
+                        )
+                        lvp_myTask.adapter = adapter
                     }
-                    val adapter = PublicTaskAdapter(applicationContext, R.layout.item_publictask, publicTaskList)
-                    lvp_myTask.adapter = adapter
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) {
 
-            }
+                }
 
-        })
+            })
+    }
+
+    private fun logout(){
+        auth.signOut()
+        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
