@@ -63,8 +63,16 @@
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/toggle_menu"/>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/textname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                 <EditText
                     android:id="@+id/usernamedd"
+                    android:layout_below="@+id/imgUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -72,7 +80,8 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name"
-                    android:layout_below="@+id/imgUser"/>
+                    android:textColor="@color/white"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/email"
@@ -81,19 +90,20 @@
                     android:layout_margin="10dp"
                     android:layout_marginTop="12dp"
                     android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_below="@+id/usernamedd"/>
+                    android:layout_below="@+id/textname"/>
 
                 <ImageView
                     android:id="@+id/bt_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="185dp"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginRight="10dp"
                     android:src="@drawable/ic_baseline_save_24"
                     android:visibility="invisible"
-                    android:layout_alignRight="@+id/usernamedd"/>
+                    android:layout_alignRight="@+id/textname"/>
 
 
             </RelativeLayout>
@@ -106,13 +116,14 @@
                 <Button
                     android:id="@+id/logoutButton"
                     android:layout_width="500dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="-8dp"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:background="@android:color/white"
                     android:text="Logout"
                     android:textAllCaps="false"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/layout"/>
 
             </RelativeLayout>
 

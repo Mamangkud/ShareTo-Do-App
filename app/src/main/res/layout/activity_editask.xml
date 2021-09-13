@@ -83,7 +83,8 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/average_sans"
-            android:text="Save" />
+            android:text="Save"
+            android:backgroundTint="@color/layout"/>
 
 
     </LinearLayout>

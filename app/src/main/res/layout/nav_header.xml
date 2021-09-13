@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@drawable/backgroundnavi">
+    android:background="@drawable/bgnavi">
 
     <RelativeLayout
         android:id="@+id/imgUser"
@@ -32,10 +32,10 @@
         android:layout_below="@+id/imgUser"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/baloo"
-        android:text="Share TO-DO"
+        android:text="ShareToDo"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/email"

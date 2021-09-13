@@ -47,15 +47,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <EditText
                 android:id="@+id/edt_update_judul"
-                android:layout_width="278dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="44dp"
-                android:ems="10"
                 android:hint="Title"
                 android:inputType="textCapSentences"
                 android:textSize="20dp" />
@@ -90,7 +89,8 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
         android:fontFamily="@font/average_sans"
-        android:text="Share To Public" />
+        android:text="Share To Public"
+        android:backgroundTint="@color/layout"/>
 
     <Button
         android:id="@+id/bt_mytask"
@@ -100,7 +100,8 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="center"
         android:fontFamily="@font/average_sans"
-        android:text="Save To My Task" />
+        android:text="Save To My Task"
+        android:backgroundTint="@color/layout"/>
     </LinearLayout>
 
 </LinearLayout>
